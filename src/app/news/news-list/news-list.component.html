@@ -1,0 +1,13 @@
+
+<div class="header">
+  <span><h1>News</h1></span>
+  <button (click)="logout()">Logout</button>
+</div>
+<app-news-search (inputChange)="setSearchTerm($event)"></app-news-search>
+<div *ngFor="let post of posts|filterPipe:searchTerm" class="card">
+    <h4>{{post.title}}</h4>
+    <p>{{post.body}}</p>
+    <br>
+    <button (click)="deletePost(post)">Delete</button>
+    <button (click)="edit(post.id)">Edit</button>
+</div>

@@ -3,6 +3,7 @@
   <span><h1>News</h1></span>
   <button (click)="logout()">Logout</button>
 </div>
+<p>The length of the array is {{posts?.length}}!</p>
 <app-news-search (inputChange)="setSearchTerm($event)"></app-news-search>
 <div *ngFor="let post of posts|filterPipe:searchTerm" class="card">
     <h4>{{post.title}}</h4>

@@ -31,7 +31,10 @@ export class NewsListComponent implements OnInit {
     this.router.navigate(['/news',id])
   }
   deletePost(post:Post){
-    this.newsService.delete(post).subscribe()
+    this.newsService.delete(post).subscribe(data=>{
+       this.posts = this.posts.filter(item=>item.title != post.title)
+
+    })
   }
   logout(){
     this.authService.logout()
